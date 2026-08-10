@@ -1,5 +1,7 @@
 import { FaLeaf, FaBullseye, FaUsers, FaGlobeAsia, FaRecycle, FaHandsHelping } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+// Add your background photo here — drop the image into src/assets and update this import
+import heroBg from '../assets/plastic-pellets.jpg'
 
 const values = [
     {
@@ -30,7 +32,13 @@ function AboutUs() {
     return (
         <div className='bg-white'>
             {/* Hero */}
-            <section className='relative bg-[#0f4a26] overflow-hidden'>
+            <section
+                className='relative overflow-hidden bg-cover bg-center'
+                style={{ backgroundImage: `url(${heroBg})` }}
+            >
+                {/* Dark overlay for text legibility on top of the photo */}
+                <div className='absolute inset-0 bg-[#0f4a26]/85'></div>
+                {/* Subtle dot texture on top of the overlay */}
                 <div className='absolute inset-0 opacity-10'
                     style={{
                         backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',

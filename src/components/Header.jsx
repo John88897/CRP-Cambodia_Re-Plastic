@@ -23,7 +23,7 @@ function Header() {
                     <div className='flex items-center gap-2 pr-3 border-r border-white/30'>
                         <img className='w-4 sm:w-5' src={phone} alt="phone" />
                         <span className='text-white text-xs sm:text-sm whitespace-nowrap'>
-                            +855 - 123456789
+                            +855 - 16789703
                         </span>
                     </div>
                     <div className=' flex xs:flex items-center gap-3 text-white text-sm sm:text-base'>

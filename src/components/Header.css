@@ -1,0 +1,165 @@
+/* ---------- Burger / mobile toggle ---------- */
+.burger {
+   display: none;
+   font-size: 22px;
+   background: #166837;
+   color: white;
+   border: none;
+   padding: 8px 12px;
+   border-radius: 6px;
+   cursor: pointer;
+   transition: background-color 0.2s;
+}
+
+.burger:hover {
+   background: #1B5118;
+}
+
+/* ---------- Backdrop ---------- */
+.menu-backdrop {
+   display: none;
+}
+
+/* ---------- Close button (mobile only) ---------- */
+.close-btn {
+   display: none;
+}
+
+/* ---------- Nav menu (desktop default) ---------- */
+.menu {
+   display: flex;
+   align-items: center;
+   gap: clamp(20px, 3vw, 56px);
+   font-family: Montserrat, sans-serif;
+   text-transform: uppercase;
+   font-weight: 500;
+   font-size: clamp(13px, 1vw, 16px);
+   letter-spacing: 0.02em;
+}
+
+.nav-link {
+   text-decoration: none;
+   color: #000000CC;
+   white-space: nowrap;
+   position: relative;
+   padding-bottom: 4px;
+   transition: color 0.3s ease;
+}
+
+.nav-link::after {
+   content: "";
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 0;
+   height: 2px;
+   background: #166837;
+   transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+   color: #1B5118;
+}
+
+.nav-link:hover::after {
+   width: 100%;
+}
+
+.nav-link-active {
+   color: #166837;
+   font-weight: 700;
+}
+
+.nav-link-active::after {
+   width: 100%;
+}
+
+/* ---------- Mobile breakpoint ---------- */
+@media (max-width: 991px) {
+   .burger {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+
+   .menu-backdrop {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 99998;
+      animation: fadeIn 0.3s ease;
+   }
+
+   .menu {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      align-items: stretch;
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 78%;
+      max-width: 320px;
+      height: 100dvh;
+      background: white;
+      z-index: 99999;
+      padding: 64px 0 24px;
+      overflow-y: auto;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+      transition: right 0.35s ease;
+   }
+
+   .menu.active {
+      right: 0;
+   }
+
+   .menu li {
+      width: 100%;
+   }
+
+   .nav-link {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      border-bottom: 1px solid #eee;
+      font-size: 15px;
+   }
+
+   .nav-link::after {
+      display: none;
+   }
+
+   .nav-link-active {
+      background: #f3f9f4;
+      border-left: 3px solid #166837;
+      padding-left: 21px;
+   }
+
+   .close-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      background: #f4f4f4;
+      border: none;
+      border-radius: 50%;
+      font-size: 16px;
+      cursor: pointer;
+      color: #333;
+      transition: background 0.2s;
+   }
+
+   .close-btn:hover {
+      background: #e8e8e8;
+   }
+}
+
+@keyframes fadeIn {
+   from { opacity: 0; }
+   to { opacity: 1; }
+}

@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom'
 // Add your background photo here — drop the image into src/assets and update this import
 import heroBg from '../assets/plastic-pellets.jpg'
 
+// Team activity photos — add real photos to src/assets and update these imports
+import activity1 from '../assets/team1.jpg'
+import activity2 from '../assets/team2.jpg'
+import activity3 from '../assets/team3.jpg'
+import activity4 from '../assets/team4.jpg'
+import activity5 from '../assets/team5.jpg'
+
+
 const values = [
     {
         icon: FaLeaf,
@@ -26,6 +34,15 @@ const timeline = [
     { year: '2014', text: 'Opened our first processing facility, moving from collection into sorting and washing.' },
     { year: '2019', text: 'Scaled to pelletizing, supplying recycled raw material directly to manufacturers.' },
     { year: 'Today', text: 'A full-cycle recycling operation serving partners across the region.' },
+];
+
+const activities = [
+    { img: activity1, caption: 'Team member' },
+    { img: activity2, caption: 'Community collection drive' },
+    { img: activity3, caption: 'Processing line in action' },
+    { img: activity4, caption: 'Partner site visit' },
+    { img: activity5, caption: 'Partner site visit' },
+    
 ];
 
 function AboutUs() {
@@ -126,6 +143,43 @@ function AboutUs() {
                             <p className='text-sm text-gray-500 leading-relaxed'>{desc}</p>
                         </div>
                     ))}
+                </div>
+            </section>
+
+            {/* Team in action */}
+            <section className='bg-[#f6f9f7] py-20 sm:py-28'>
+                <div className='max-w-6xl mx-auto px-6'>
+                    <div className='mb-16 max-w-lg'>
+                        <span className='text-[#166837] text-sm font-semibold tracking-wide uppercase'>
+                            Team In Action
+                        </span>
+                        <h2 className='text-3xl sm:text-4xl font-bold text-gray-900 mt-2'>
+                            A look at the day-to-day.
+                        </h2>
+                    </div>
+
+                    <div className='grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6'>
+                        {activities.map(({ img, caption }, i) => (
+                            <div
+                                key={i}
+                                className={`group relative rounded-2xl overflow-hidden bg-gray-200
+                                    ${i === 0 ? 'col-span-2 aspect-[16/9]' : 'aspect-square'}`}
+                            >
+                                <img
+                                    src={img}
+                                    alt={caption}
+                                    className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
+                                />
+                                <div className='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent
+                                    opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+                                <p className='absolute bottom-3 left-4 right-4 text-white text-xs sm:text-sm font-medium
+                                    opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0
+                                    transition-all duration-300'>
+                                    {caption}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
